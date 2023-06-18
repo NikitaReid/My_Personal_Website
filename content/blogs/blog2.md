@@ -2,11 +2,15 @@
 categories:
 - ""
 - ""
-date: "2017-10-31T22:26:09-05:00"
-description: Lorem Etiam Nullam
+date: "2023-06-18"
+description: From Physics to Finance 
 draft: false
-image: pic09.jpg
+image: lbs2.jpg
 keywords: ""
-slug: magna
-title: Magna
+slug: two
+title: The LBS Adventure 
 ---
+
+After I got tired of staring at stars and playing with computers, I came to the 
+beautiful and brilliant London Business School and ended up in Data Science for 
+Business, playing with more computers!

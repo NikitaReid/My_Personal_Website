@@ -39,7 +39,7 @@ library(here)
 
 I went around to a sample of 100 people whom I am acquainted with in some way or another and asked them to look at my Python and R tiles and decide which code/application was their favourite. I recorded the data in excel (we all make mistakes), and will now analyze it here.
 
-```{r poll_data}
+```{r poll_data, warning=FALSE}
 
 # read in the data
 poll <- read_csv(here::here("data","poll.csv"))
@@ -54,5 +54,26 @@ poll %>%
   labs(title = "Which programming language won?",
        x = "Favourite Code", y = "Number of people") +
   guides(fill="none")
+
+```
+
+There is a clear favourite here...
+
+However, as a student of the scientific and rigorous persuasion, it is my duty to ascertain whether people in fact understood the choice they were making. I asked the same 100 people whether they in fact understood the Python code and the concept of what it was supposed to do.
+
+```{r understood_data, warning=FALSE}
+
+# count number of favourites for each code and plot bar graph 
+poll %>% 
+  group_by(Favourite,Understood_Python) %>% 
+  count() %>% 
+  ggplot(aes(x = Favourite, y = n, fill=Understood_Python)) +
+  geom_bar(stat = "identity", position = "dodge") +
+
+# some labels 
+  labs(title = "Which programming language won?",
+       subtitle = "and did people actually understand what they were voting for?",
+       x = "Favourite Code", y = "Number of people", 
+       fill="Understood the \nPython application?") 
 
 ```

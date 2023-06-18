@@ -106,7 +106,7 @@ params:
         title: The Poll
         url: blogs/six
   two:
-    buttonText: Get Started
+    buttonText: Ready?
     enable: yes
     subtitle: "I have always been a fan of learning. Particularly,
     I enjoy exploring the peculiar, the random, and the unexplained. 

@@ -5,6 +5,7 @@ categories:
 date: "2023-06-18"
 description: ...UK energy, emissions etc. 
 draft: false
+image: uk.png
 keywords: ""
 slug: five 
 title: R helps us figure out...

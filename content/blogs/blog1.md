@@ -2,13 +2,18 @@
 categories:
 - ""
 - ""
-date: "2017-10-31T21:28:43-05:00"
-description: ""
+date: "2023-06-18"
+description: "The four year journey"
 draft: false
-image: pic10.jpg
+image: Galaxy2.jpg
 keywords: ""
-slug: ipsum
-title: Ipsum
+slug: one
+title: Astrophysics
 ---
 
-Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
+The journey starts with four years of horrible Mathematics with some super cool
+space exploration in between. I created the above picture at the UCL Observatory 
+sometime in the Spring of 2019, using two different Celestron-14 telescopes, nine 
+different colour filters and about three hours of observing time. Some fancy computer 
+and Photoshop antics later and we have a lovely galaxy image like the ones you see on Google.
+This is known as the "Pinwheel Galaxy". Can you see why? 

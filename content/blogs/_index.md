@@ -1,9 +1,9 @@
 ---
-date: "2017-10-31T22:27:21-05:00"
+date: "2023-06-18"
 draft: false
-image: pic02.jpg
+image: background.png
 slug: blogs
-title: Lifestyle
+title: Years of learning well spent
 ---
 
-My blogs about technology and lifestyle.
+Random ramblings of a career student and geek.

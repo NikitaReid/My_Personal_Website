@@ -6,27 +6,26 @@ googleAnalytics: ''
 disqusShortname: ''
 params:
   banner:
-    buttonText: Get Started
+    buttonText: The Random Nonsense
  #   subtitle: |-
  #     A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
  #    AND RELEASED UNDER THE CREATIVE COMMONS.
-    title: Nikita Reid, 
-    unassuming victim of Data Science for Business Class of 2023
+    title: Nikita Reid, unassuming victim of Data Science for Business Class of 2023
   blog: {}
   contact:
     address:
-      - city: City, ST 00000
-        country: Country
-        street: Street
-        title: Address
+      - city: London
+        country: England
+        street: Sussex Place
+        title: London Business School
     buttonClear: Clear
     buttonSend: Send message
     email:
-      - email: example@domain.com
+      - email: nreid.mfa2023@london.edu
         title: Email
     enable: yes
     phone:
-      - phone: (000) 000-0000 x1234
+      - phone: +44 (0)20 7000 7000
         title: Phone
   custom_css: []
   custom_js: []
@@ -35,29 +34,29 @@ params:
     heading: Page couldn't be found
     text: Please visit [this page](/)
   favicon: favicon.ico
-  footer:
-    copyright: Company Name
-    enable: yes
-    quicklinks:
-      - alt: HTML5 UP
-        text: 'Design: '
-        url: https://www.html5up.net
-    social:
-      - icon: fa-twitter
-        label: Twitter
-        url: https://www.twitter.com
-      - icon: fa-facebook
-        label: Facebook
-        url: https://www.facebook.com
-      - icon: fa-instagram
-        label: Instagram
-        url: https://www.instagram.com
-      - icon: fa-github
-        label: GitHub
-        url: https://www.github.com
-      - icon: fa-linkedin
-        label: LinkedIn
-        url: https://www.linkedin.com
+  #footer:
+   # copyright: Company Name
+   # enable: yes
+   # quicklinks:
+    #  - alt: HTML5 UP
+     #   text: 'Design: '
+     #   url: https://www.html5up.net
+   # social:
+  #    - icon: fa-twitter
+   #     label: Twitter
+   #     url: https://www.twitter.com
+    #  - icon: fa-facebook
+    #    label: Facebook
+    #    url: https://www.facebook.com
+     # - icon: fa-instagram
+     #   label: Instagram
+     #   url: https://www.instagram.com
+     # - icon: fa-github
+     #   label: GitHub
+     #   url: https://www.github.com
+     # - icon: fa-linkedin
+      #  label: LinkedIn
+      #  url: https://www.linkedin.com
   image: ''
   name: Your name
   navigation:

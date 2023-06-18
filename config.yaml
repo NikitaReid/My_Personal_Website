@@ -94,9 +94,9 @@ params:
         title: How it all came together 
         url: blogs/three
       - image: Python.png
-        subtitle: INSERT
+        subtitle: The MPDAF package in all of its glory
         title: The Python Argument
-        url: blogs/ipsum
+        url: blogs/four
       - image: R.png
         subtitle: INSERT
         title: A Case for R

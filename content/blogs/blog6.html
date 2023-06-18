@@ -30,10 +30,11 @@ poll %&gt;%
   guides(fill=&quot;none&quot;)</code></pre>
 <p><img src="/blogs/blog6_files/figure-html/poll_data-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>There is a clear favourite here…</p>
-<p>However, as a student of the scientific and rigorous persuasion, it is my duty to ascertain whether people in fact understood the choice they were making. I asked the same 100 people whether they in fact understood the Python code and the concept of what it was supposed to do.</p>
-<pre class="r"><code># count number of favourites for each code and plot bar graph 
+<p>However, as a student of the scientific and rigorous persuasion, it is my duty to ascertain whether people in fact understood the choice they were making. I asked the same 100 people whether they understood the Python code and the concept of what it was supposed to do.</p>
+<pre class="r"><code># count number of favourites and understanding
+# for each code and plot grouped bar graph 
 poll %&gt;% 
-  group_by(Favourite,Understood_Python) %&gt;% 
+  group_by(Favourite, Understood_Python) %&gt;% 
   count() %&gt;% 
   ggplot(aes(x = Favourite, y = n, fill=Understood_Python)) +
   geom_bar(stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
@@ -44,4 +45,5 @@ poll %&gt;%
        x = &quot;Favourite Code&quot;, y = &quot;Number of people&quot;, 
        fill=&quot;Understood the \nPython application?&quot;) </code></pre>
 <p><img src="/blogs/blog6_files/figure-html/understood_data-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Python can do some cool things, and I will stick to that! However, this survey was clearly not the most reliable as most people did not know what was going on. And yes, multiple individuals surveyed did ask me if I could use Astrophysics to predict their star sign…</p>
 </div>

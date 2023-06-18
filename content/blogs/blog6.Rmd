@@ -59,13 +59,14 @@ poll %>%
 
 There is a clear favourite here...
 
-However, as a student of the scientific and rigorous persuasion, it is my duty to ascertain whether people in fact understood the choice they were making. I asked the same 100 people whether they in fact understood the Python code and the concept of what it was supposed to do.
+However, as a student of the scientific and rigorous persuasion, it is my duty to ascertain whether people in fact understood the choice they were making. I asked the same 100 people whether they understood the Python code and the concept of what it was supposed to do.
 
 ```{r understood_data, warning=FALSE}
 
-# count number of favourites for each code and plot bar graph 
+# count number of favourites and understanding
+# for each code and plot grouped bar graph 
 poll %>% 
-  group_by(Favourite,Understood_Python) %>% 
+  group_by(Favourite, Understood_Python) %>% 
   count() %>% 
   ggplot(aes(x = Favourite, y = n, fill=Understood_Python)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -77,3 +78,5 @@ poll %>%
        fill="Understood the \nPython application?") 
 
 ```
+
+Python can do some cool things, and I will stick to that! However, this survey was clearly not the most reliable as most people did not know what was going on. And yes, multiple individuals surveyed did ask me if I could use Astrophysics to predict their star sign...

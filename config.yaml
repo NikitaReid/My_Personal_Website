@@ -92,7 +92,7 @@ params:
       - image: cool_atom.png
         subtitle: ...for better or worse
         title: How it all came together 
-        url: blogs/magna
+        url: blogs/three
       - image: Python.png
         subtitle: INSERT
         title: The Python Argument

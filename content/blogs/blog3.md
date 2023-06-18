@@ -2,14 +2,14 @@
 categories:
 - ""
 - ""
-date: "2017-10-31T22:26:13-05:00"
-description: Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna
-  sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa
-  sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem
-  consequat tincidunt. Vivamus et sagittis tempus.
+date: "2023-06-18"
+description: Where it all goes from here
 draft: false
-image: pic08.jpg
+image: paths.png
 keywords: ""
-slug: tempus
-title: Tempus
+slug: three
+title: The journey ahead
 ---
+
+Quickly running out of masters degrees to do, I realize I cannot study forever. 
+Having built up a very useful set of skills, it is time for me to ride off into the sunset, as it were, and choose a new and exciting path.

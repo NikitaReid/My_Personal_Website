@@ -60,61 +60,61 @@ params:
   image: ''
   name: Your name
   navigation:
-    button1:
-      - name: Get Started
-        url: blogs
-    button2:
-      - name: Log In
-        url: '#'
+  #  button1:
+  #    - name: Get Started
+  #      url: blogs
+  #  button2:
+  #    - name: Log In
+  #      url: '#'
     links:
       - name: Home
         url: '#'
-      - name: Blogs
+      - name: Projects
         url: blogs
-      - name: Generic Blog
-        url: blogs/ipsum
-      - name: Elements
-        url: elements.html
+    #  - name: Generic Blog
+    #    url: blogs/ipsum
+    #  - name: Elements
+     #   url: elements.html
     menu: Menu
-    subtitle: By HTML5 Up
-    title: Forty
+    subtitle: By Nikita Reid
+    title: Random Nonsense
   tiles:
     enable: yes
     showcase:
-      - image: pic01.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Aliquam
+      - image: Galaxy1.png
+        subtitle: not quite so far away...
+        title: A Galaxy
         url: blogs/aliquam
-      - image: pic02.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Tempus
+      - image: LBS.png
+        subtitle: Memories of LBS 
+        title: The Business School Adventure
         url: blogs/tempus
-      - image: pic03.jpg
-        subtitle: Lorem Etiam Nullam
-        title: Magna
+      - image: cool_atom.png
+        subtitle: ...for better or worse
+        title: How it all came together 
         url: blogs/magna
-      - image: pic04.jpg
-        subtitle: Nisl Sed Aliquam
-        title: Ipsum
+      - image: Python.png
+        subtitle: INSERT
+        title: The Python Argument
         url: blogs/ipsum
-      - image: pic05.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Consequat
+      - image: R.png
+        subtitle: INSERT
+        title: A Case for R
         url: blogs/ipsum
-      - image: pic06.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Etiam
+      - image: poll.png
+        subtitle: let's see who won in the end 
+        title: The Poll
         url: blogs/ipsum
   two:
     buttonText: Get Started
     enable: yes
-    subtitle: "Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
-      \n    Mauris aliquet magna magna sed nunc rhoncus pharetra. \n    Pellentesque
-      condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia
-      pellentesque lorem ipsum dolor. \n    Nullam et orci eu lorem consequat tincidunt.
-      Vivamus et sagittis libero.\n    Mauris aliquet magna magna sed nunc rhoncus
-      amet pharetra et feugiat tempus."
-    title: Massa libero
+    subtitle: "I have always been a fan of learning. Particularly,
+    I enjoy exploring the peculiar, the random, and the unexplained. 
+    Throughout my now far too many years of studying, I have attempted to
+    use data and various programming tools, and at times
+    quick wit and perseverance, to explain the unexplained. 
+    Find here some of the quirky results (best viewed in order):"
+    title: The Journey 
     url: blogs
 
 markup: 

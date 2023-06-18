@@ -1,0 +1,32 @@
+---
+categories:  
+- ""   
+- ""
+date: "2023-06-18"
+description: according to 100 of my nearest and dearest 
+draft: false
+keywords: ""
+slug: six 
+title: Which code was cooler
+---
+
+
+
+<div id="polling-which-code-sounded-cooler" class="section level1">
+<h1>Polling which code sounded cooler</h1>
+<p>I went around to a sample of 100 people whom I am acquainted with in some way or another and asked them to look at my Python and R tiles and decide which code/application was their favourite. I recorded the data in excel (we all make mistakes), and will now analyze it here.</p>
+<pre class="r"><code># read in the data
+poll &lt;- read_csv(here::here(&quot;data&quot;,&quot;poll.csv&quot;))
+
+# count number of favourites for each code and plot bar graph 
+poll %&gt;% 
+  count(Favourite) %&gt;% 
+  ggplot(aes(x = Favourite, y = n, fill=Favourite)) +
+  geom_bar(stat = &quot;identity&quot;) +
+
+# some labels 
+  labs(title = &quot;Which programming language won?&quot;,
+       x = &quot;Favourite Code&quot;, y = &quot;Number of people&quot;) +
+  guides(fill=&quot;none&quot;)</code></pre>
+<p><img src="/blogs/blog6_files/figure-html/poll_data-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>

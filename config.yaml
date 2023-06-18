@@ -104,7 +104,7 @@ params:
       - image: poll.png
         subtitle: let's see who won in the end 
         title: The Poll
-        url: blogs/ipsum
+        url: blogs/six
   two:
     buttonText: Get Started
     enable: yes

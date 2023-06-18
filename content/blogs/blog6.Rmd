@@ -1,0 +1,58 @@
+---
+categories:  
+- ""   
+- ""
+date: "2023-06-18"
+description: according to 100 of my nearest and dearest 
+draft: false
+keywords: ""
+slug: six 
+title: Which code was cooler
+---
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center")
+
+```
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+
+# Load ggplot2, dplyr, and all the other tidyverse packages
+library(tidyverse)
+library(skimr)
+library(here)
+
+```
+
+# Polling which code sounded cooler
+
+I went around to a sample of 100 people whom I am acquainted with in some way or another and asked them to look at my Python and R tiles and decide which code/application was their favourite. I recorded the data in excel (we all make mistakes), and will now analyze it here.
+
+```{r poll_data}
+
+# read in the data
+poll <- read_csv(here::here("data","poll.csv"))
+
+# count number of favourites for each code and plot bar graph 
+poll %>% 
+  count(Favourite) %>% 
+  ggplot(aes(x = Favourite, y = n, fill=Favourite)) +
+  geom_bar(stat = "identity") +
+
+# some labels 
+  labs(title = "Which programming language won?",
+       x = "Favourite Code", y = "Number of people") +
+  guides(fill="none")
+
+```

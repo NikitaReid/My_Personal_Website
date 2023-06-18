@@ -98,9 +98,9 @@ params:
         title: The Python Argument
         url: blogs/four
       - image: R.png
-        subtitle: INSERT
+        subtitle: Investigating the UK energy profile 
         title: A Case for R
-        url: blogs/ipsum
+        url: blogs/five
       - image: poll.png
         subtitle: let's see who won in the end 
         title: The Poll

@@ -1,0 +1,185 @@
+---
+categories:  
+- ""   
+- ""
+date: "2023-06-18"
+description: ...UK energy, emissions etc. 
+draft: false
+keywords: ""
+slug: five 
+title: R helps us figure out...
+---
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center")
+
+```
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+
+# Load ggplot2, dplyr, and all the other tidyverse packages
+library(tidyverse)
+library(wbstats)
+library(skimr)
+library(countrycode)
+library(here)
+library(ggrepel)
+
+```
+
+# Exploring sources of electricity production, CO2 emissions, and GDP per capita in the UK.
+
+We will get energy data from the Our World in Data website, and CO2 and GDP per capita emissions from the World Bank. Then, using tidyverse to manipulate data and ggplot for plotting, we create three graphs: the energy sources used to produce electricity in the UK, CO2 emissions versus GDP per capita over time and CO2 emissions versus electricity per capita per day over time.
+
+```{r graph-1 , message=FALSE, warning=FALSE}
+
+# Download electricity data
+url <- "https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv"
+
+energy <- read_csv(url) %>% 
+  filter(year >= 1990) %>% 
+  drop_na(iso_code) %>% 
+  select(1:3,
+         biofuel = biofuel_electricity,
+         coal = coal_electricity,
+         gas = gas_electricity,
+         hydro = hydro_electricity,
+         nuclear = nuclear_electricity,
+         oil = oil_electricity,
+         other_renewable = other_renewable_exc_biofuel_electricity,
+         solar = solar_electricity,
+         wind = wind_electricity, 
+         electricity_demand,
+         electricity_generation,
+         net_elec_imports,	# Net electricity imports, measured in terawatt-hours
+         energy_per_capita,	# Primary energy consumption per capita, measured in kilowatt-hours	Calculated by Our World in Data based on BP Statistical Review of World Energy and EIA International Energy Data
+         energy_per_gdp,	# Energy consumption per unit of GDP. This is measured in kilowatt-hours per 2011 international-$.
+         per_capita_electricity, #	Electricity generation per capita, measured in kilowatt-hours
+  ) 
+
+  
+# pivot longer to get the different categories of electricity source into one column and their %s into another
+new_energy <- energy %>%
+  pivot_longer(cols=4:12,
+               names_to = "electricity_source"
+               , values_to = "percentage_of_source") %>% 
+  
+# filter for my country and remove missing values 
+  filter(country == "United Kingdom") %>% 
+  drop_na(percentage_of_source) %>% 
+  
+# group by source of electricity 
+  group_by(electricity_source) %>% 
+
+# plot graph number 1 with year on x axis, % of source on y 
+# use are to fill the different electricity sources 
+  ggplot(aes(x =year, y= percentage_of_source, 
+             fill=electricity_source)) + 
+           geom_area(colour="grey90",
+                     alpha = 0.5, position = "fill") +
+  
+# fix labels according to example image 
+# and get y axis in a % scale as in example image 
+  labs(x='', y ='', title= "Electricity Production Mix", fill="source") + scale_y_continuous(labels = scales::percent) +
+  theme_bw()
+ 
+new_energy
+
+```
+
+```{r graph-2 , message=FALSE, warning=FALSE}
+
+#Download data for C02 emissions per capita https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
+co2_percap <- wb_data(country = "countries_only", 
+                      indicator = "EN.ATM.CO2E.PC", 
+                      start_date = 1990, 
+                      end_date = 2022,
+                      return_wide=FALSE) %>% 
+  filter(!is.na(value)) %>% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated)) %>% 
+  rename(year = date,
+         co2percap = value)
+
+
+# Download data for GDP per capita  https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD
+gdp_percap <- wb_data(country = "countries_only", 
+                      indicator = "NY.GDP.PCAP.PP.KD", 
+                      start_date = 1990, 
+                      end_date = 2022,
+                      return_wide=FALSE) %>% 
+  filter(!is.na(value)) %>% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated)) %>% 
+  rename(year = date,
+         GDPpercap = value)
+
+# left join the two tables by 3 digit iso code, year 
+graph_2_data <- left_join(x = gdp_percap, y = co2_percap, by = c("iso3c", "year")) %>% 
+  
+# select my country and remove missing values 
+  filter(iso3c=="GBR") %>% 
+  drop_na(GDPpercap) %>% 
+  
+# scatterplot of gdppercap vs co2percap 
+  ggplot(aes(x = GDPpercap, y= co2percap)) +
+  geom_point() +
+# fix labels as in example figure 
+  labs(title="CO2 vs GDP per capita", 
+       x = "GDP per capita", y= "CO2 per capita") + 
+# label the data points with year 
+  geom_text_repel(aes(label= year)) + 
+# fix x axis scale to dollars as in example figure 
+  scale_x_continuous(labels = scales::dollar)
+  
+graph_2_data
+
+```
+
+```{r graph-3 , message=FALSE, warning=FALSE}
+
+# left join the two tables by country, year 
+graph_3_data <- left_join(x = co2_percap, y = energy,
+                          by = c("country", "year")) %>% 
+  
+# select my country and remove missing values 
+  filter(country=="United Kingdom") %>% 
+  drop_na(co2percap) %>% 
+  
+# mutate new column for elec used / capita / day 
+  mutate(elec_cap_day = per_capita_electricity/365) %>% 
+  
+# scatterplot of elec used / capita / day vs co2percap 
+  ggplot(aes(x = elec_cap_day, y= co2percap)) +
+  geom_point() +
+  
+# fix labels as in example figure 
+  labs(title="CO2 vs electricity consumption per capita/day", 
+       x = "Electricity used (kWh) per capita/day", 
+       y= "CO2 per capita") + 
+# label the data points with year 
+  geom_text_repel(aes(label= year)) 
+  
+graph_3_data
+
+```
+
+```{r patchwork , warning=FALSE, fig.width=10, fig.height=10}
+
+# import patchwork 
+library(patchwork)
+
+# stitch plots together 
+new_energy / (graph_2_data | graph_3_data)
+```
